@@ -1,0 +1,13 @@
+@import "variables";
+
+.cardSlideShow {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55vh;
+  min-height: 425px;
+  max-height: 575px;
+  overflow: hidden;
+  overflow-x: scroll;
+}
