@@ -4,11 +4,12 @@
   @include flex-column;
   max-width: 1000px;
   margin-top: 1rem;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
-.userSection h2 {
-  font-size: 48px;
+.userGreeting {
+  @include support-font;
+  font-size: 42px;
   margin: 0.5rem;
   margin-left: 5%;
 }
@@ -19,9 +20,6 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .userSection {
-    // align-items: flex-start;
-  }
   .userSection article {
     @include flex-column;
   }

@@ -1,29 +1,43 @@
 @import "variables";
 
 .navBar {
-  border: 1px solid red;
+  // border: 3px solid red;
   @include flex-row;
+  border-bottom: 2px solid rgb(27, 27, 27);
+  box-shadow: 0px 3px 5px -2px rgb(0, 0, 0);
   justify-content: space-between;
   align-items: center;
+  background-color: $color3;
 }
 
 .mainHeader {
-  border: 1px solid red;
-  font-size: 5rem;
+  @include title-font;
+  @include font-size(3.7);
   padding: 0.2rem;
   margin: 1.5rem;
+}
+
+.btn {
+  border: 1px solid $color1;
+  box-shadow: -2px 2px 0px $color1;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background-color: $color4;
+  &:hover {
+    background-color: blue;
+  }
 }
 
 .navLinks {
   @include flex-row;
   justify-content: space-around;
-  border: 1px solid red;
   width: 250px;
   font-size: 22px;
 }
 
 .navLinks a {
   text-decoration: none;
+  color: $color-font;
 }
 
 @media only screen and (max-width: 850px) {
@@ -37,6 +51,6 @@
 
 @media only screen and (max-width: 560px) {
   .mainHeader {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 }
