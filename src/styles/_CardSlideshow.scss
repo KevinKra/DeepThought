@@ -1,20 +1,20 @@
 @import "variables";
 
-.cardSlideShow {
+.card-slide-show {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 55vh;
   min-height: 425px;
   max-height: 575px;
-  overflow: hidden;
-  overflow-x: scroll;
+  // width: 300%;
+  // overflow-x: scroll;
+  overflow: auto;
 }
 
-.blurScreen {
+.blur-screen {
   position: absolute;
   background-color: rgba(109, 109, 109, 0.397);
-  // backdrop-filter: blur(100%);
   width: 100%;
   z-index: 0;
   min-height: 425px;
