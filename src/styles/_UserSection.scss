@@ -1,0 +1,26 @@
+@import "variables";
+
+.userSection {
+  @include flex-column;
+  max-width: 1000px;
+  margin-top: 1rem;
+  // border: 1px solid red;
+}
+
+.userGreeting {
+  @include support-font;
+  font-size: 42px;
+  margin: 0.5rem;
+  margin-left: 5%;
+}
+
+.userSection article {
+  @include flex-row;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 900px) {
+  .userSection article {
+    @include flex-column;
+  }
+}

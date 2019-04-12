@@ -1,13 +1,10 @@
 import React, { Component } from "react";
+import MainPage from "./MainPage";
 import "../styles/_App.scss";
 
 class App extends Component {
   render() {
-    return (
-      <main className="App">
-        <h1>Hello World</h1>
-      </main>
-    );
+    return <MainPage />;
   }
 }
 

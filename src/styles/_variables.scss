@@ -1,1 +1,27 @@
-$color: blue;
+$color1: rgba(242, 77, 77, 1);
+$color2: rgba(235, 227, 242, 1);
+$color3: rgba(167, 224, 242, 1);
+$color4: rgba(242, 214, 167, 1);
+$color5: rgba(242, 155, 48, 1);
+$color-font: rgb(58, 58, 58);
+
+@mixin font-size($n) {
+  font-size: $n * 1rem;
+}
+
+@mixin title-font {
+  font-family: "Bungee Shade", cursive;
+}
+
+@mixin support-font {
+  font-family: "Fira Sans", sans-serif;
+}
+
+@mixin flex-row {
+  display: flex;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
