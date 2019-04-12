@@ -6,7 +6,7 @@ class UserSection extends React.Component {
   render() {
     return (
       <section className="userSection">
-        <h2>UserName</h2>
+        <h2 className="userGreeting">Welcome, Guest.</h2>
         <article>
           <UserCard />
           <UserCard />
