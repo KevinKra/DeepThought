@@ -17,11 +17,26 @@
 .navLinks {
   @include flex-row;
   justify-content: space-around;
-  // border: 1px solid red;
+  border: 1px solid red;
   width: 250px;
   font-size: 22px;
 }
 
 .navLinks a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 850px) {
+  .navBar {
+    @include flex-column;
+  }
+  .navLinks {
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .mainHeader {
+    font-size: 3rem;
+  }
 }
