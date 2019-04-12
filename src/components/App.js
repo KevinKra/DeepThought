@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CardSlideshow from "./CardSlideshow";
 import NavBar from "./NavBar";
+import UserSection from "./UserSection";
 import "../styles/_App.scss";
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <main className="App">
         <NavBar />
         <CardSlideshow />
+        <UserSection />
       </main>
     );
   }
