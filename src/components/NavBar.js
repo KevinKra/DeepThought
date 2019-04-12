@@ -4,14 +4,14 @@ class NavBar extends React.Component {
   render() {
     return (
       <header className="navBar">
-        <h1 className="mainHeader">DeepThought</h1>
+        <h1 className="mainHeader">ThinkDeeper</h1>
         <div className="navLinks">
           {/* conditional main button */}
           <button className="btn">
-            <a href="">Main</a>
+            <a href="">Profile</a>
           </button>
           <button className="btn">
-            <a href="">Profile</a>
+            <a href="">Sign Out</a>
           </button>
         </div>
       </header>
