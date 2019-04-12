@@ -1,6 +1,7 @@
+@import "variables";
+
 .mainPage {
   min-height: 100vh;
-  // background: url("https://images.unsplash.com/photo-1546179838-170aa3f207b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
-  // filter: grayscale(70%);
-  // background-color: #f1f4df;
+  // background: $color3;
+  // background: linear-gradient($color6 85%, $color2 110%);
 }
