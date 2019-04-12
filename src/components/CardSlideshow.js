@@ -12,6 +12,7 @@ const CardSlideshow = () => {
       <CardTopic />
       <CardTopic />
       <CardTopic />
+      <div className="blurScreen" />
     </section>
   );
 };
