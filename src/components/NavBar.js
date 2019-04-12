@@ -7,8 +7,12 @@ class NavBar extends React.Component {
         <h1 className="mainHeader">DeepThought</h1>
         <div className="navLinks">
           {/* conditional main button */}
-          <a href="">Main</a>
-          <a href="">Profile</a>
+          <button className="btn">
+            <a href="">Main</a>
+          </button>
+          <button className="btn">
+            <a href="">Profile</a>
+          </button>
         </div>
       </header>
     );
