@@ -1,0 +1,25 @@
+@import "variables";
+
+.window {
+  border: 1px solid blue;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-section {
+  @include flex-column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid red;
+  height: 200px;
+  width: 400px;
+}
+
+.login {
+  @include flex-column;
+  justify-content: space-between;
+  border: 1px solid red;
+  height: 4rem;
+}
