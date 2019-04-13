@@ -9,8 +9,6 @@ class UserSection extends React.Component {
         <h2 className="userGreeting">Welcome, Guest.</h2>
         <article>
           <UserCard />
-          <UserCard />
-          <UserCard />
         </article>
       </section>
     );

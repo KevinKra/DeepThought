@@ -1,22 +1,49 @@
 $color1: rgba(242, 77, 77, 1);
-$color2: rgba(235, 227, 242, 1);
+// $color2: rgb(236, 232, 240);
+$color-offWhite: rgb(241, 241, 241);
+$color-offBlack: rgb(27, 27, 27);
 $color3: rgba(167, 224, 242, 1);
 $color4: rgba(242, 214, 167, 1);
 $color4-dark: rgb(233, 207, 160);
 $color5: rgba(242, 155, 48, 1);
-$color6: rgb(233, 233, 233);
+$color-bright: white;
+$color-shadow: black;
+$support-color: lightcoral;
 $color-font: rgb(58, 58, 58);
 
 @mixin font-size($n) {
   font-size: $n * 1rem;
 }
 
-@mixin title-font {
-  font-family: "Bungee Shade", cursive;
+@mixin button-style($color, $border, $borderRadius) {
+  background-color: $color;
+  border: 2px solid $border;
+  border-radius: $borderRadius;
+  box-shadow: -2px 2px 0px $border;
+  transform: translate(2px);
+  font-size: 16px;
+  transition: 0.07s ease-out;
+  &:hover {
+    background-color: darken($color, 8%);
+  }
+  &:active {
+    background-color: darken($color, 12%);
+    transform: translate(1px, 1px);
+    box-shadow: -1px 1px 0px $border;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-@mixin support-font {
-  font-family: "Fira Sans", sans-serif;
+@mixin title-font($size) {
+  font-family: "Bungee Shade", cursive;
+  font-size: $size * 2rem;
+}
+
+@mixin support-font($size) {
+  font-family: "Nanum Pen Script", sans-serif;
+  font-size: $size * 0.5rem;
 }
 
 @mixin flex-row {

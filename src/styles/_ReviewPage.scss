@@ -1,0 +1,29 @@
+@import "variables";
+
+.window-reviewPage {
+  @include flex-column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: $support-color;
+}
+
+.content-section {
+  display: flex;
+  justify-content: space-around;
+  min-height: 85vh;
+  height: 100%;
+  width: 100%;
+  max-width: 1450px;
+}
+
+@media only screen and (max-width: 850px) {
+  .content-section {
+    @include flex-column;
+    align-items: center;
+  }
+  .navLinks {
+    margin-bottom: 1rem;
+  }
+}

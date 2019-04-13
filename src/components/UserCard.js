@@ -1,10 +1,11 @@
 import React from "react";
 import "../styles/_UserCard.scss";
+import UserStats from "./UserStats";
 class UserCard extends React.Component {
   render() {
     return (
       <article className="userCard">
-        <p>content</p>
+        <UserStats />
       </article>
     );
   }

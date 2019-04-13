@@ -1,0 +1,43 @@
+@import "variables";
+
+.content-card {
+  @include flex-column;
+  margin: 0.8rem 0.5rem 0.3rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  width: 45%;
+  max-height: 780px;
+}
+
+.content-card h2 {
+  margin-top: 1rem;
+}
+
+.content {
+  @include flex-column;
+  @include font-size(1.7);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0px 0px 10px 1px rgb(46, 46, 46);
+  border: 3px solid $color3;
+  border-radius: 1.5rem;
+  min-height: 450px;
+  width: 285px;
+  background-color: white;
+}
+
+@media only screen and (max-width: 425px) {
+  .content-card {
+    min-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .content {
+    width: 265px;
+    height: 425px;
+  }
+}

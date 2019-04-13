@@ -1,31 +1,28 @@
 @import "variables";
 
 .navBar {
-  // border: 3px solid red;
   @include flex-row;
   border-bottom: 3px solid rgb(85, 97, 122);
-  box-shadow: 0px 3px 8px 0px rgb(0, 0, 0);
+  box-shadow: 0px 3px 8px 0px $color-shadow;
   justify-content: space-between;
   align-items: center;
   background-color: $color3;
+  width: 100%;
 }
 
 .mainHeader {
-  @include title-font;
+  @include title-font(3);
   @include font-size(3.7);
   padding: 0.2rem;
   margin: 1.5rem;
 }
 
 .btn {
-  border: 1px solid $color1;
-  box-shadow: -2px 2px 0px $color1;
-  border-radius: 5px;
+  @include button-style($color4, $color1, 15px);
   padding: 0.5rem 1rem;
   background-color: $color4;
   width: 125px;
   &:hover {
-    cursor: pointer;
     background-color: $color4-dark;
   }
 }
@@ -75,7 +72,7 @@
 
 @media only screen and (max-width: 390px) {
   .mainHeader {
-    @include title-font;
+    @include title-font(2);
     @include font-size(2.2);
   }
   .navLinks {
