@@ -1,79 +1,29 @@
 @import "variables";
 
-.window {
+.window-reviewPage {
   @include flex-column;
   justify-content: space-between;
+  align-items: center;
   min-height: 100vh;
+  width: 100%;
+  background-color: $support-color;
 }
 
 .content-section {
   display: flex;
   justify-content: space-around;
-  // min-height: 85vh;
+  min-height: 85vh;
   height: 100%;
-  width: 90%;
-  border: 1px solid red;
-}
-
-.question-card {
-  @include flex-column;
-  justify-content: center;
-  align-items: center;
-  border: 1px dashed orange;
-  width: 45%;
-}
-
-.question {
-  @include flex-column;
-  @include font-size(2);
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1.5rem;
-  box-shadow: 2px 2px 5px grey;
-  border: 3px solid $color3;
-  border-radius: 1.5rem;
-  height: 450px;
-  width: 285px;
-}
-
-.question-form {
-  @include flex-column;
-  margin-top: 1rem;
-  align-items: center;
-  border: 1px solid red;
   width: 100%;
-  max-width: 400px;
+  max-width: 1450px;
 }
 
-.question-form label {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.question-form textarea {
-  // box-sizing: border-box;
-  border: 1px solid red;
-  width: 93.5%;
-  height: 100px;
-}
-
-.question-form button {
-  border: 1px solid red;
-  width: 95%;
-}
-
-//
-
-.answer-card {
-  border: 1px dashed green;
-  width: 45%;
-}
-
-.answer {
-  border: 1px solid blue;
-  height: 600px;
-  width: 400px;
+@media only screen and (max-width: 850px) {
+  .content-section {
+    @include flex-column;
+    align-items: center;
+  }
+  .navLinks {
+    margin-bottom: 1rem;
+  }
 }

@@ -1,25 +1,81 @@
 @import "variables";
 
-.window {
-  border: 1px solid blue;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+.window-login {
+  @include flex-column;
   align-items: center;
+  background-color: $support-color;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.window-login h1 {
+  @include title-font(3);
+  margin-bottom: 0;
+}
+
+.window-login p {
+  @include support-font(3);
 }
 
 .form-section {
   @include flex-column;
   align-items: center;
+  background-color: $color-bright;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: -2px 2px 0px $color-offBlack;
+  height: 150px;
   justify-content: space-around;
-  border: 1px solid red;
-  height: 200px;
-  width: 400px;
+  margin-top: 1.5rem;
+  transform: translate(2px);
+  width: 250px;
 }
 
 .login {
   @include flex-column;
+  height: 80%;
   justify-content: space-between;
-  border: 1px solid red;
-  height: 4rem;
+  width: 85%;
+}
+
+.login input {
+  @include flex-column;
+  background-color: $color-offWhite;
+  border-radius: 3px;
+  border: 2px solid $color-offBlack;
+  font-size: 16px;
+  margin-top: 0.3rem;
+  padding: 0.3rem;
+  width: 94%;
+  &:focus {
+    outline: none;
+    border: 2px solid $support-color;
+  }
+}
+
+.login button {
+  @include button-style($color3, black, 5px);
+  padding: 15px;
+}
+
+@media only screen and (max-width: 950px) {
+  .window-login h1 {
+    @include title-font(1.5);
+    margin-bottom: 0;
+  }
+
+  .window-login p {
+    @include support-font(2.5);
+  }
+}
+
+@media only screen and (max-width: 485px) {
+  .window-login h1 {
+    @include title-font(1);
+    margin-bottom: 0;
+  }
+
+  .window-login p {
+    display: none;
+  }
 }

@@ -1,6 +1,6 @@
 @import "variables";
 
-.question-card {
+.content-card {
   @include flex-column;
   margin: 0.8rem 0.5rem 0.3rem 0.5rem;
   justify-content: center;
@@ -10,11 +10,11 @@
   max-height: 780px;
 }
 
-.question-card h2 {
+.content-card h2 {
   margin-top: 1rem;
 }
 
-.question {
+.content {
   @include flex-column;
   @include font-size(1.7);
   justify-content: center;
@@ -29,40 +29,14 @@
   background-color: white;
 }
 
-.question-form {
-  @include flex-column;
-  margin: 1rem 0;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-}
-
-.question-form label {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.question-form textarea {
-  width: 93.5%;
-  height: 100px;
-}
-
-.question-form button {
-  width: 95%;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-}
-
 @media only screen and (max-width: 425px) {
-  .question-card {
+  .content-card {
     min-width: 100%;
   }
 }
 
 @media only screen and (max-width: 390px) {
-  .question {
+  .content {
     width: 265px;
     height: 425px;
   }
