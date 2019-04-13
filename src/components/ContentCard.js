@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/_ContentCard.scss";
+import CardTextArea from "./CardTextArea";
 class ContentCard extends React.Component {
   constructor() {
     super();
@@ -7,16 +8,10 @@ class ContentCard extends React.Component {
   }
   render() {
     return (
-      <section className="question-card">
+      <section className="content-card">
         <h2>{this.props.title}</h2>
-        <article className="question">{this.props.text}</article>
-        <form className="question-form">
-          <label>
-            {"Enter Guess Here"}
-            <textarea />
-          </label>
-          <button type="submit">SUBMIT</button>
-        </form>
+        <article className="content">{this.props.text}</article>
+        <CardTextArea label="Enter Guess Here" />
       </section>
     );
   }
