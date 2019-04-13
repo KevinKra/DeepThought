@@ -3,13 +3,14 @@ import "../styles/_LoginPage.scss";
 class LoginPage extends React.Component {
   render() {
     return (
-      <main className="window">
+      <main className="window-login">
+        <h1>ThinkDeeper</h1>
+        <p> -- Think more deeply about your favorite topics -- </p>
         <section className="form-section">
-          <h1>ThinkDeeper</h1>
           <form className="login">
             <label>
               {"UserName:"}
-              <input type="text" placeholder="Enter your name..." />
+              <input type="text" placeholder=" Enter your name..." />
             </label>
             <button type="submit">Log In</button>
           </form>
