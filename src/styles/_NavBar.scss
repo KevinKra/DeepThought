@@ -31,12 +31,14 @@
   @include flex-row;
   justify-content: space-around;
   width: 350px;
+  height: 40px;
   // border: 1px solid red;
   font-size: 22px;
 }
 
-.navLinks a {
+.navLinks p {
   text-decoration: none;
+  margin: 0;
   color: $color-font;
 }
 
