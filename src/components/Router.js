@@ -1,7 +1,8 @@
 import React from "react";
-import App from "./App";
+import MainPage from "./MainPage";
 import ReviewPage from "./ReviewPage";
 import LoginPage from "./LoginPage";
+import NotFound from "./NotFound";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const Router = () => {
@@ -9,7 +10,9 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LoginPage} />
-        <Router path="/main/:mainId" component={App} />
+        <Route path="/main/:mainId" component={MainPage} />
+        <Route path="/review/:cardId" component={ReviewPage} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
