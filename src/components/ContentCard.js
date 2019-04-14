@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/_ContentCard.scss";
 import CardTextArea from "./CardTextArea";
+import Button from "./Button";
 class ContentCard extends React.Component {
   constructor() {
     super();
@@ -11,7 +12,14 @@ class ContentCard extends React.Component {
       <section className="content-card">
         <h2>{this.props.title}</h2>
         <article className="content">{this.props.text}</article>
-        <CardTextArea label="Enter Guess Here" />
+        {this.props.title === "Question" ? (
+          <CardTextArea label="Enter Guess Here" />
+        ) : (
+          <div className="button-container">
+            <Button name={"Got it!"} />
+            <Button name={"More practice!"} />
+          </div>
+        )}
       </section>
     );
   }
