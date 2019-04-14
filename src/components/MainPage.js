@@ -9,7 +9,7 @@ class MainPage extends Component {
     return (
       <main className="mainPage">
         <NavBar history={this.props.history} />
-        <CardSlideshow />
+        <CardSlideshow history={this.props.history} />
         <UserSection />
       </main>
     );
