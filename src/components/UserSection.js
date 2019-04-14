@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/_UserSection.scss";
-import userCard from "./UserCard";
 import UserCard from "./UserCard";
 class UserSection extends React.Component {
   render() {

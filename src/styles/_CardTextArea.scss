@@ -38,3 +38,9 @@
   margin-bottom: 0.5rem;
   background-color: $color3;
 }
+
+@media only screen and (max-width: 390px) {
+  .cardTextArea-form {
+    width: 90%;
+  }
+}

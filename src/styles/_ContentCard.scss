@@ -37,7 +37,12 @@
 
 @media only screen and (max-width: 390px) {
   .content {
-    width: 265px;
-    height: 425px;
+    width: 235px;
+    min-height: 380px;
+    // margin: 0;
+  }
+
+  .content-card {
+    margin: 0;
   }
 }

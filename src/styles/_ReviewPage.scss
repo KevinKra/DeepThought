@@ -23,5 +23,6 @@
   .content-section {
     @include flex-column;
     align-items: center;
+    margin: 0;
   }
 }
