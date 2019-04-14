@@ -8,7 +8,7 @@ class MainPage extends Component {
   render() {
     return (
       <main className="mainPage">
-        <NavBar />
+        <NavBar history={this.props.history} />
         <CardSlideshow />
         <UserSection />
       </main>
