@@ -77,3 +77,25 @@ export function getFunName() {
 export function rando(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
+
+//*.) default state
+//-- this.answer hidden
+//-- GOT IT | MORE PRACTICE buttons disabled
+
+//1.) on SUBMIT show current card's answer
+//-- onSumbit() display this.answer
+//-- GOT IT | MORE PRACTICE buttons enabled
+
+//2.) on GOT IT remove the card from the stack
+//-- this.understood = true
+//-- stack.splice() | remove this card
+//^^^^^ dont destroy the struct, perhaps dont display cards with understood = true;
+//-- display random next card
+//-- return to default
+
+//3.) on MORE PRACTICE set flag to true
+//-- this.flagged = true
+//-- this.understood = false
+//-- return to default
+
+//store in localStorage
