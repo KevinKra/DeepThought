@@ -318,3 +318,7 @@ const TopicReact = [
     flagged: false
   }
 ];
+
+module.exports = {
+  TopicReact
+};
