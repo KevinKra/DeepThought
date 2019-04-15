@@ -5,7 +5,7 @@ class UserSection extends React.Component {
   render() {
     return (
       <section className="userSection">
-        <h2 className="userGreeting">Welcome, Guest.</h2>
+        <h2 className="userGreeting">{`Welcome, ${this.props.userName}!`}</h2>
         <article>
           <UserCard />
         </article>
