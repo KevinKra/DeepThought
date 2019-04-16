@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/_NavBar.scss";
-import { EPERM } from "constants";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +28,6 @@ class NavBar extends React.Component {
     );
   };
   render() {
-    console.log(this.renderMain());
     return (
       <header className="navBar">
         <h1 className="mainHeader">ThinkDeeper</h1>

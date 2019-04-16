@@ -1,6 +1,11 @@
 import React from "react";
 import "../styles/_LoginPage.scss";
 import { getFunName } from "../helpers";
+//
+import { connect } from "react-redux";
+import { updateUser } from "../redux/actions/user-actions";
+//
+
 class LoginPage extends React.Component {
   myInput = React.createRef();
 
@@ -8,9 +13,13 @@ class LoginPage extends React.Component {
     e.preventDefault();
     const urlName = this.myInput.current.value;
     this.props.history.push(`/main/${urlName}`);
-    // console.log(this.myInput.current.value);
+  };
+
+  onUpdateUser = () => {
+    this.props.onUpdateUser(this.myInput.current.value);
   };
   render() {
+    console.log(this.props.user);
     return (
       <main className="window-login">
         <h1>ThinkDeeper</h1>
@@ -26,7 +35,9 @@ class LoginPage extends React.Component {
                 defaultValue={getFunName()}
               />
             </label>
-            <button type="submit">Log In</button>
+            <button onClick={this.onUpdateUser} type="submit">
+              Log In
+            </button>
           </form>
         </section>
       </main>
@@ -34,4 +45,16 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapActionsToProps = {
+  onUpdateUser: updateUser
+};
+
+// export default LoginPage;
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(LoginPage);

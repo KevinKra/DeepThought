@@ -1,0 +1,8 @@
+@import "variables";
+
+.btn-2 {
+  @include button-style($color3, red, 4px);
+  min-width: 48%;
+  margin: 0.3rem;
+  padding: 20px;
+}

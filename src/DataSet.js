@@ -309,7 +309,7 @@ const TopicReact = [
   },
   {
     id: 30,
-    question: "What is an important expect to extracting Components with keys?",
+    question: "What is an important aspect to extracting Components with keys?",
     answer:
       "When you extract a component you should keep the key on the component element itself.",
     understood: false,
@@ -318,3 +318,7 @@ const TopicReact = [
     flagged: false
   }
 ];
+
+module.exports = {
+  TopicReact
+};
