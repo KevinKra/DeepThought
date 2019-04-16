@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import "../styles/_ReviewPage.scss";
 import ContentCard from "./ContentCard";
 import { connect } from "react-redux";
-import { collectAllCards } from "../redux/actions/card-actions";
+import { updateAllCards } from "../redux/actions/card-actions";
 
 class ReviewPage extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class ReviewPage extends React.Component {
 
     const cards = [...this.props.cards.TopicReact];
     cards[this.state.order].understood = true;
-    this.props.collectAllCards(cards);
+    this.props.updateAllCards(cards);
     console.log(cards);
 
     //if click NEED REVIEW
@@ -70,7 +70,7 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProp = {
-  collectAllCards: collectAllCards
+  updateAllCards: updateAllCards
 };
 
 //higher order component
