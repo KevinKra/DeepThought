@@ -11,10 +11,22 @@ class ContentCard extends React.Component {
     const answerCard = (
       <section className="content-card">
         <h2>{this.props.title}</h2>
-        <article className="content">{this.props.text}</article>
+        {this.props.submitStatus ? (
+          <article className="content">{this.props.text}</article>
+        ) : (
+          <article className="content">{null}</article>
+        )}
         <div className="button-container">
-          <Button name={"Got it!"} />
-          <Button name={"More practice!"} />
+          <Button
+            submitStatus={this.props.submitStatus}
+            handleAnswer={this.props.handleAnswer}
+            name={"Got it!"}
+          />
+          <Button
+            submitStatus={this.props.submitStatus}
+            handleAnswer={this.props.handleAnswer}
+            name={"More practice!"}
+          />
         </div>
       </section>
     );
@@ -23,7 +35,10 @@ class ContentCard extends React.Component {
       <section className="content-card">
         <h2>{this.props.title}</h2>
         <article className="content">{this.props.text}</article>
-        <CardTextArea label="Enter Guess Here" />
+        <CardTextArea
+          handleClick={this.props.handleClick}
+          label="Enter Guess Here"
+        />
       </section>
     );
 

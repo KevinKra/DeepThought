@@ -12,7 +12,9 @@ class CardTextArea extends React.Component {
           {this.props.label}
           <textarea />
         </label>
-        <button type="">SUBMIT</button>
+        <button onClick={this.props.handleClick} type="submit">
+          SUBMIT
+        </button>
       </form>
     );
   }
