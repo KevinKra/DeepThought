@@ -7,7 +7,7 @@ export default function cardsReducer(state = [], { type, payload }) {
     case COLLECT_CARDS:
       return rando(payload);
     case UPDATE_ALL_CARDS:
-      return payload;
+      return { TopicReact: payload };
     default:
       return state;
   }

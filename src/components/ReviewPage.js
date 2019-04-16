@@ -14,6 +14,16 @@ class ReviewPage extends React.Component {
     };
   }
 
+  resetList = () => {
+    const order = this.props.cards.TopicReact.indexOf(
+      this.props.cards.TopicReact.find(card => {
+        return !card.understood;
+      })
+    );
+    console.log(order);
+    this.setState({ order: 0 });
+  };
+
   handleClick = e => {
     e.preventDefault();
     this.setState({ hasBeenClicked: true });
@@ -24,11 +34,10 @@ class ReviewPage extends React.Component {
     // response ? console.log("true") : console.log("false");
 
     //default state
-    this.setState({ hasBeenClicked: false });
 
     this.state.order + 1 === this.props.cards.TopicReact.length
-      ? console.log("works")
-      : this.setState({ order: this.state.order + 1 });
+      ? this.resetList()
+      : this.setState({ order: this.state.order + 1, hasBeenClicked: false });
 
     //if click GOT IT
     //update state tree --> current card's understood = true
