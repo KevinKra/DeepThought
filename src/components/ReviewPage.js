@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import "../styles/_ReviewPage.scss";
 import ContentCard from "./ContentCard";
 import { connect } from "react-redux";
+import { collectAllCards } from "../redux/actions/card-actions";
 
 class ReviewPage extends React.Component {
   constructor(props) {
@@ -32,8 +33,10 @@ class ReviewPage extends React.Component {
     //if click GOT IT
     //update state tree --> current card's understood = true
 
-    // const cards = [...this.props.cards.TopicReact];
-    // thisarray.find()
+    const cards = [...this.props.cards.TopicReact];
+    cards[this.state.order].understood = true;
+    this.props.collectAllCards(cards);
+    console.log(cards);
 
     //if click NEED REVIEW
     //leave to understood = false
@@ -66,8 +69,12 @@ const mapStateToProps = state => ({
   cards: state.cards
 });
 
+const mapActionsToProp = {
+  collectAllCards: collectAllCards
+};
+
 //higher order component
 export default connect(
-  mapStateToProps
-  // mapActionsToProp
+  mapStateToProps,
+  mapActionsToProp
 )(ReviewPage);
