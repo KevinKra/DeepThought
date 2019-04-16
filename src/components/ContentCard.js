@@ -8,19 +8,29 @@ class ContentCard extends React.Component {
     this.state = {};
   }
   render() {
-    return (
+    const answerCard = (
       <section className="content-card">
         <h2>{this.props.title}</h2>
         <article className="content">{this.props.text}</article>
-        {this.props.title === "Question" ? (
-          <CardTextArea label="Enter Guess Here" />
-        ) : (
-          <div className="button-container">
-            <Button name={"Got it!"} />
-            <Button name={"More practice!"} />
-          </div>
-        )}
+        <div className="button-container">
+          <Button name={"Got it!"} />
+          <Button name={"More practice!"} />
+        </div>
       </section>
+    );
+
+    const questionCard = (
+      <section className="content-card">
+        <h2>{this.props.title}</h2>
+        <article className="content">{this.props.text}</article>
+        <CardTextArea label="Enter Guess Here" />
+      </section>
+    );
+
+    return (
+      <React.Fragment>
+        {this.props.title === "Question" ? questionCard : answerCard}
+      </React.Fragment>
     );
   }
 }
