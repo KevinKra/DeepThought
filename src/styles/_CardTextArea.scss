@@ -24,7 +24,7 @@
   width: 93.5%;
   height: 100px;
   font-size: 16px;
-  border: 1px solid black;
+  border: 1px solid $color-shadow;
   border-radius: 5px;
   &:focus {
     border: 1px solid $color3;
@@ -32,7 +32,7 @@
 }
 
 .cardTextArea-form button {
-  @include button-style($color3, black, 15px);
+  @include button-style($color3, $color-shadow, 15px);
   width: 95%;
   padding: 1rem;
   margin-bottom: 0.5rem;
