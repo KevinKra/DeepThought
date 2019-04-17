@@ -5,4 +5,11 @@
   min-width: 48%;
   margin: 0.3rem;
   padding: 20px;
+  &:disabled {
+    color: $color-disabled;
+    border: 2px solid $color-disabled;
+    box-shadow: -2px 2px 0px $color-disabled;
+    background-color: white;
+    cursor: default;
+  }
 }
