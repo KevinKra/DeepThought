@@ -37,7 +37,7 @@ class NavBar extends React.Component {
             history={this.props.history}
             onClick={this.toProfile}
           >
-            <p href="">Profile</p>
+            <p>Profile</p>
           </button>
           {this.props.mainLink ? this.renderMain() : null}
           <button
