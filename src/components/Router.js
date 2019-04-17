@@ -8,15 +8,15 @@ import { connect } from "react-redux";
 import { collectAllCards } from "../redux/actions/card-actions";
 
 class Router extends React.Component {
-  // componentDidMount() {
-  //   fetch(
-  //     "https://fe-apps.herokuapp.com/api/v1/memoize/1901/kevinkra/topicreact"
-  //   )
-  //     .then(res => res.json())
-  //     // .then(res => console.log(res))
-  //     .then(data => this.props.onCollectAllCards)
-  //     .catch(err => console.log("ERROR ", err));
-  // }
+  componentDidMount() {
+    fetch(
+      "https://fe-apps.herokuapp.com/api/v1/memoize/1901/kevinkra/topicreact"
+    )
+      .then(res => res.json())
+      .then(data => this.props.onCollectAllCards(data))
+      .catch(err => console.log("ERROR ", err));
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -31,9 +31,7 @@ class Router extends React.Component {
   }
 }
 
-//allows access to all dispatches to all reducers
 const mapActionsToProps = {
-  //onCollectAllCards is a prop now that exists in class Router
   onCollectAllCards: collectAllCards
 };
 
@@ -41,5 +39,3 @@ export default connect(
   null,
   mapActionsToProps
 )(Router);
-// mapStateToProps,
-// mapActionsToProps
