@@ -23,9 +23,7 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapActionsToProps = {};
-
 export default connect(
-  mapStateToProps,
-  mapActionsToProps
+  mapStateToProps
+  // mapActionsToProps
 )(MainPage);

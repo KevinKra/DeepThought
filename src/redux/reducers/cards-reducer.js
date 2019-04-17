@@ -1,4 +1,16 @@
+import { COLLECT_CARDS } from "../actions/card-actions";
+import { rando } from "../../helpers";
+import { UPDATE_ALL_CARDS } from "../actions/card-actions";
+
 //reducer for cards
-export default function cardsReducer(state = [], action) {
-  return state;
+export default function cardsReducer(state = [], { type, payload }) {
+  console.log(type, payload);
+  switch (type) {
+    case COLLECT_CARDS:
+      return payload;
+    case UPDATE_ALL_CARDS:
+      return { TopicReact: payload };
+    default:
+      return state;
+  }
 }
