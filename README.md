@@ -1,6 +1,6 @@
 # ThinkDeeper
 
-ThinkDeeper is an application designed around providing users with a platform to rapidly study flashcards regarding various topics.
+ThinkDeeper is an application designed around providing users with a platform to rapidly study flashcards regarding various topics. Simply log in, choose a card pack you would like to study, then begin studying!
 
 ## Installation
 
