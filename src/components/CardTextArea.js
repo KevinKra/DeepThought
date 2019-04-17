@@ -5,6 +5,7 @@ class CardTextArea extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return (
       <form className="cardTextArea-form">

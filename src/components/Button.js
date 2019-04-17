@@ -8,8 +8,11 @@ class Button extends React.Component {
   render() {
     return (
       <button
-        onClick={e => this.props.handleAnswer(e, this.props.name === "Got it!")}
-        // disabled={!this.props.submitStatus}
+        onClick={e => {
+          this.props.handleAnswer(e, this.props.name === "Got it!");
+          this.props.detectOrderNum();
+        }}
+        disabled={!this.props.submitStatus}
         className="btn-2"
       >
         {this.props.name}
