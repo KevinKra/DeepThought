@@ -20,10 +20,12 @@ class ContentCard extends React.Component {
           <Button
             submitStatus={this.props.submitStatus}
             handleAnswer={this.props.handleAnswer}
+            detectOrderNum={this.props.detectOrderNum}
             name={"Got it!"}
           />
           <Button
             submitStatus={this.props.submitStatus}
+            detectOrderNum={this.props.detectOrderNum}
             handleAnswer={this.props.handleAnswer}
             name={"More practice!"}
           />
