@@ -319,6 +319,6 @@ const TopicReact = [
   }
 ];
 
-module.exports = {
-  TopicReact
-};
+// module.exports = {
+//   TopicReact
+// };
