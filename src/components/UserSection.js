@@ -6,9 +6,9 @@ class UserSection extends React.Component {
     return (
       <section className="userSection">
         <h2 className="userGreeting">{`Welcome, ${this.props.userName}!`}</h2>
-        <article>
+        {/* <article>
           <UserCard />
-        </article>
+        </article> */}
       </section>
     );
   }
