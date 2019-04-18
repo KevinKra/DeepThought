@@ -7,12 +7,19 @@ class ContentCard extends React.Component {
     super();
     this.state = {};
   }
+
+  componentDidMount() {
+    if (this.props) this.setState({});
+  }
+
   render() {
     const answerCard = (
       <section className="content-card">
         <h2>{this.props.title}</h2>
         {this.props.submitStatus ? (
-          <article className="content">{this.props.text}</article>
+          <article className="content">
+            {this.props.renderCard("answerCard")}
+          </article>
         ) : (
           <article className="content">{null}</article>
         )}
@@ -36,7 +43,9 @@ class ContentCard extends React.Component {
     const questionCard = (
       <section className="content-card">
         <h2>{this.props.title}</h2>
-        <article className="content">{this.props.text}</article>
+        <article className="content">
+          {this.props.renderCard("questionCard")}
+        </article>
         <CardTextArea
           handleClick={this.props.handleClick}
           label="Enter Guess Here"

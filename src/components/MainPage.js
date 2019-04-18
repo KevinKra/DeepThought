@@ -15,15 +15,6 @@ class MainPage extends Component {
       displayMainPage: true
     };
   }
-  componentDidMount() {
-    fetch(
-      "https://fe-apps.herokuapp.com/api/v1/memoize/1901/kevinkra/topicreact"
-    )
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .then(data => this.props.onCollectAllCards(data))
-      .catch(err => console.log("ERROR ", err));
-  }
 
   renderNotFoundPage = () => {
     this.setState({
