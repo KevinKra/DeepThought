@@ -5,25 +5,10 @@ class NavBar extends React.Component {
     super(props);
     this.state = {};
   }
-  SignOut = e => {
-    e.preventDefault();
-    this.props.history.push(`/`);
-  };
-  toProfile = e => {
-    e.preventDefault();
-  };
-  toMain = e => {
-    e.preventDefault();
-    this.props.history.push(`/main/1`);
-  };
   renderMain = () => {
     return (
-      <button
-        className="btn"
-        history={this.props.history}
-        onClick={this.toMain}
-      >
-        <p href="">Main Page</p>
+      <button className="btn" onClick={this.props.renderMainPage}>
+        <p>Main Page</p>
       </button>
     );
   };
@@ -32,19 +17,11 @@ class NavBar extends React.Component {
       <header className="navBar">
         <h1 className="mainHeader">ThinkDeeper</h1>
         <form className="navLinks">
-          <button
-            className="btn"
-            history={this.props.history}
-            onClick={this.toProfile}
-          >
+          <button className="btn" onClick={this.toProfile}>
             <p>Profile</p>
           </button>
           {this.props.mainLink ? this.renderMain() : null}
-          <button
-            className="btn"
-            history={this.props.history}
-            onClick={this.SignOut}
-          >
+          <button className="btn" onClick={this.returnToLogin}>
             <p>Sign Out</p>
           </button>
         </form>
