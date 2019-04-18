@@ -1,60 +1,61 @@
 import React from "react";
 import "../styles/_LoginPage.scss";
 import { getFunName } from "../helpers";
-//
-import { connect } from "react-redux";
-import { updateUser } from "../redux/actions/user-actions";
-//
+import MainPage from "./MainPage";
 
 class LoginPage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      renderMainPage: false
+    };
+  }
   myInput = React.createRef();
 
   goToMainPage = e => {
     e.preventDefault();
-    const urlName = this.myInput.current.value;
-    this.props.history.push(`/main/${urlName}`);
+    this.props.updateUsername(this.myInput.current.value);
+    this.setState({ renderMainPage: true });
   };
 
-  onUpdateUser = () => {
-    this.props.onUpdateUser(this.myInput.current.value);
+  returnToLogin = () => {
+    localStorage.clear();
+    this.setState({ renderMainPage: false });
   };
+
   render() {
-    console.log(this.props.user);
     return (
-      <main className="window-login">
-        <h1>ThinkDeeper</h1>
-        <p> -- Think more deeply about your favorite topics -- </p>
-        <section className="form-section">
-          <form className="login" onSubmit={this.goToMainPage}>
-            <label>
-              {"UserName:"}
-              <input
-                ref={this.myInput}
-                type="text"
-                placeholder=" Enter your name..."
-                defaultValue={getFunName()}
-              />
-            </label>
-            <button onClick={this.onUpdateUser} type="submit">
-              Log In
-            </button>
-          </form>
-        </section>
-      </main>
+      <div>
+        {!this.state.renderMainPage ? (
+          <React.Fragment>
+            <main className="window-login">
+              <h1>ThinkDeeper</h1>
+              <p> -- Think more deeply about your favorite topics -- </p>
+              <section className="form-section">
+                <form className="login" onSubmit={this.goToMainPage}>
+                  <label>
+                    {"UserName:"}
+                    <input
+                      ref={this.myInput}
+                      type="text"
+                      placeholder=" Enter your name..."
+                      defaultValue={getFunName()}
+                    />
+                  </label>
+                  <button type="submit">Log In</button>
+                </form>
+              </section>
+            </main>
+          </React.Fragment>
+        ) : (
+          <MainPage
+            userName={this.props.userName}
+            renderLoginPage={this.returnToLogin}
+          />
+        )}
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user
-});
-
-const mapActionsToProps = {
-  onUpdateUser: updateUser
-};
-
-// export default LoginPage;
-export default connect(
-  mapStateToProps,
-  mapActionsToProps
-)(LoginPage);
+export default LoginPage;

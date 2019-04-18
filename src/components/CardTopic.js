@@ -9,9 +9,9 @@ class CardTopic extends React.Component {
     };
   }
   handleClick = () => {
-    // console.log("hello");
-    // console.log(this.props.history);
-    this.props.history.push(`/review/review-${this.state.topic}`);
+    this.state.topic === "React"
+      ? this.props.renderReview()
+      : this.props.renderNotFound();
   };
   render() {
     return (

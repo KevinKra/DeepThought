@@ -5,13 +5,19 @@ class Button extends React.Component {
     super();
     this.state = {};
   }
+  buttonPath = () => {
+    if (this.props.name === "Got it!") {
+      this.props.handleResponse("GOT IT");
+      console.log("button-detect got it");
+    } else {
+      this.props.handleResponse("MORE PRACTICE");
+      console.log("button-detect more practice");
+    }
+  };
   render() {
     return (
       <button
-        onClick={e => {
-          this.props.handleAnswer(e, this.props.name === "Got it!");
-          this.props.detectOrderNum();
-        }}
+        onClick={this.buttonPath}
         disabled={!this.props.submitStatus}
         className="btn-2"
       >
