@@ -13,6 +13,7 @@ class MainPage extends Component {
       displayReviewPage: false,
       displayNotFoundPage: false,
       displayMainPage: true
+      // reviewCards: false
     };
   }
 
