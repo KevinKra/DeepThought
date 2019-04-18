@@ -9,30 +9,47 @@ class ReviewPage extends React.Component {
     super(props);
     this.state = {
       totalCards: [],
+      failedCards: [],
       order: 0,
       hasBeenClicked: false,
       restartPrompt: false
     };
   }
 
-  componentDidMount() {
+  localStorage = () => {
+    return (
+      localStorage.getItem("failedCards") &&
+      this.setState({
+        failedCards: JSON.parse(localStorage.getItem("failedCards"))
+      })
+    );
+  };
+
+  fetchData = () => {
     fetch(
       "https://fe-apps.herokuapp.com/api/v1/memoize/1901/kevinkra/topicreact"
     )
       .then(res => res.json())
       .then(data => this.collectAllCards(data))
       .catch(err => console.log("ERROR ", err));
+  };
+
+  componentDidMount() {
+    // may need to detect if localStore .length or [] is true
+    if (localStorage.getItem("failedCards")) {
+      this.fetchData();
+    } else {
+      this.localStorage();
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("failedCards", JSON.stringify(nextState.failedCards));
   }
 
   collectAllCards = data => {
     this.setState({ totalCards: data });
   };
-
-  // dispatchCards = () => {
-  //   if (!this.state.totalCards.length === 0) {
-  //     return true
-  //   }
-  // }
 
   //1.)Iterate through all understood:false cards one at a time
   renderCard = cardType => {
@@ -50,21 +67,39 @@ class ReviewPage extends React.Component {
     }
   };
 
-  //2.)Display current question in question card, answer in answer card
+  // every time you submit guess run a function
+  // this function filters out the cards if they're true
+  // then set it to state and invoke an anonymous function that stores that state to local storage
+  // this.setState({array : []}, () => {} ) set to local storage
 
-  //3.)OnSubmit click, render answer card answer
+  handleResponse = type => {
+    const allCards = this.state.totalCards.TopicReact;
+    const currentCardIndex = this.state.order;
+    const newOrderNum = currentCardIndex + 1;
+    console.log(newOrderNum);
+    if (newOrderNum === 30) {
+      console.log("WAIT!!!");
+      this.setState({ restartPrompt: true });
+    }
+    if (type === "GOT IT") {
+      // console.log("Review-level got it");
+      this.setState({ order: newOrderNum, hasBeenClicked: false });
+      // , hasBeenClicked: false
+      allCards[currentCardIndex].understood = true;
+    } else {
+      // console.log("Review-level more practice");
+      const currentCard = allCards[currentCardIndex];
+      const newFailedCards = this.state.failedCards || [];
+      newFailedCards.push(currentCard);
+      this.setState({
+        order: newOrderNum,
+        hasBeenClicked: false,
+        failedCards: newFailedCards
+      });
 
-  //4.)on GOT IT! change understood to true
-
-  //5.)on More Practice! change understood to false
-
-  //6.)iterate through all cards
-
-  //7.)once length reached, restart with understood:false or exit to main --if exit to main set all to understood:false
-
-  //-- optional: reset cards. All set to understood:false.
-
-  resetList = () => {};
+      allCards[currentCardIndex].understood = false;
+    }
+  };
 
   handleClick = e => {
     e.preventDefault();
@@ -89,22 +124,20 @@ class ReviewPage extends React.Component {
               <ContentCard
                 title="Question"
                 handleClick={this.handleClick}
+                handleResponse={this.handleResponse}
                 renderCard={this.renderCard}
-                // text={currentCard.question}
               />
               <ContentCard
                 title="Answer"
                 submitStatus={this.state.hasBeenClicked}
-                handleAnswer={this.handleAnswerResponse}
-                detectOrderNum={this.detectOrderNum}
+                handleResponse={this.handleResponse}
                 renderCard={this.renderCard}
-                // text={currentCard.answer}
               />
             </React.Fragment>
           ) : (
             <Prompt
               restartPrompt={this.state.restartPrompt}
-              toMain={this.toMain}
+              renderMainPage={this.props.renderMainPage}
             />
           )}
         </section>
