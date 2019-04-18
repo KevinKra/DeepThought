@@ -17,11 +17,11 @@ class NavBar extends React.Component {
       <header className="navBar">
         <h1 className="mainHeader">ThinkDeeper</h1>
         <form className="navLinks">
-          <button className="btn" onClick={this.toProfile}>
+          <button className="btn" onClick={this.props.renderMainPage}>
             <p>Profile</p>
           </button>
           {this.props.mainLink ? this.renderMain() : null}
-          <button className="btn" onClick={this.returnToLogin}>
+          <button className="btn" onClick={this.props.renderLoginPage}>
             <p>Sign Out</p>
           </button>
         </form>

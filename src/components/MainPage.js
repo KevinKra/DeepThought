@@ -13,7 +13,6 @@ class MainPage extends Component {
       displayReviewPage: false,
       displayNotFoundPage: false,
       displayMainPage: true
-      // reviewCards: false
     };
   }
 
@@ -44,7 +43,7 @@ class MainPage extends Component {
   render() {
     const mainPage = (
       <div className="mainPage">
-        <NavBar renderLoginPage={this.props.returnToLogin} />
+        <NavBar renderLoginPage={this.props.renderLoginPage} />
         <CardSlideshow
           renderReview={this.renderReviewPage}
           renderNotFound={this.renderNotFoundPage}
@@ -56,7 +55,7 @@ class MainPage extends Component {
       if (this.state.displayReviewPage) {
         return (
           <ReviewPage
-            renderLoginPage={this.props.returnToLogin}
+            renderLoginPage={this.props.renderLoginPage}
             renderMainPage={this.renderMainPage}
           />
         );

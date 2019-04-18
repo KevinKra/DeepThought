@@ -19,6 +19,7 @@ class LoginPage extends React.Component {
   };
 
   returnToLogin = () => {
+    localStorage.clear();
     this.setState({ renderMainPage: false });
   };
 
