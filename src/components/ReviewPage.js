@@ -16,13 +16,11 @@ class ReviewPage extends React.Component {
     };
   }
 
-  localStorage = () => {
-    return (
-      localStorage.getItem("failedCards") &&
-      this.setState({
-        failedCards: JSON.parse(localStorage.getItem("failedCards"))
-      })
-    );
+  accessLocalStorage = () => {
+    console.log(JSON.parse(localStorage.getItem("failedCards")));
+    this.setState({
+      failedCards: JSON.parse(localStorage.getItem("failedCards"))
+    });
   };
 
   fetchData = () => {
@@ -35,59 +33,70 @@ class ReviewPage extends React.Component {
   };
 
   componentDidMount() {
-    // may need to detect if localStore .length or [] is true
-    if (localStorage.getItem("failedCards")) {
-      this.fetchData();
+    this.setState({ order: 0 });
+    ///////////////////////////////////////////////////
+    if (JSON.parse(localStorage.getItem("failedCards"))) {
+      this.accessLocalStorage();
     } else {
-      this.localStorage();
+      this.fetchData();
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem("failedCards", JSON.stringify(nextState.failedCards));
+  componentDidUpdate(nextState) {
+    if (this.state.failedCards.length) {
+      localStorage.setItem(
+        "failedCards",
+        JSON.stringify(this.state.failedCards)
+      );
+    }
   }
 
   collectAllCards = data => {
     this.setState({ totalCards: data });
   };
 
-  //1.)Iterate through all understood:false cards one at a time
   renderCard = cardType => {
-    const allCards = this.state.totalCards.TopicReact;
+    const allCards = this.state.totalCards.TopicReact || this.state.failedCards;
+    ///////////////////////////////////////////////////
     if (allCards === undefined) {
       console.log("loading");
     } else {
-      // console.log(allCards);
-      // console.log("cardType:", cardType);
-      if (cardType === "answerCard") {
+      if (
+        cardType === "answerCard" &&
+        allCards.length !== 0 &&
+        this.state.order + 1 <= allCards.length
+      ) {
         return allCards[this.state.order].answer;
-      } else {
+      } else if (
+        cardType === "questionCard" &&
+        allCards.length !== 0 &&
+        this.state.order + 1 <= allCards.length
+      ) {
         return allCards[this.state.order].question;
+      } else if (
+        allCards.length !== 0 &&
+        this.state.order + 1 >= allCards.length
+      ) {
+        this.setState({ restartPrompt: true });
       }
     }
   };
 
-  // every time you submit guess run a function
-  // this function filters out the cards if they're true
-  // then set it to state and invoke an anonymous function that stores that state to local storage
-  // this.setState({array : []}, () => {} ) set to local storage
-
   handleResponse = type => {
-    const allCards = this.state.totalCards.TopicReact;
+    console.log("failedCards:", this.state.failedCards);
+    console.log("totalCards:", this.state.totalCards.TopicReact);
+    const allCards = this.state.totalCards.TopicReact || this.state.failedCards;
     const currentCardIndex = this.state.order;
     const newOrderNum = currentCardIndex + 1;
     console.log(newOrderNum);
     if (newOrderNum === 30) {
       console.log("WAIT!!!");
-      this.setState({ restartPrompt: true });
+      this.setState({ restartPrompt: true, order: 0 });
     }
     if (type === "GOT IT") {
-      // console.log("Review-level got it");
       this.setState({ order: newOrderNum, hasBeenClicked: false });
-      // , hasBeenClicked: false
       allCards[currentCardIndex].understood = true;
     } else {
-      // console.log("Review-level more practice");
       const currentCard = allCards[currentCardIndex];
       const newFailedCards = this.state.failedCards || [];
       newFailedCards.push(currentCard);
@@ -114,7 +123,7 @@ class ReviewPage extends React.Component {
     return (
       <main className="window-reviewPage">
         <NavBar
-          renderLoginPage={this.props.returnToLogin}
+          renderLoginPage={this.props.renderLoginPage}
           renderMainPage={this.props.renderMainPage}
           mainLink={true}
         />
