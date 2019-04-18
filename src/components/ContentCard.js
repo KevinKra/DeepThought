@@ -8,10 +8,6 @@ class ContentCard extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    if (this.props) this.setState({});
-  }
-
   render() {
     const answerCard = (
       <section className="content-card">
@@ -26,14 +22,12 @@ class ContentCard extends React.Component {
         <div className="button-container">
           <Button
             submitStatus={this.props.submitStatus}
-            handleAnswer={this.props.handleAnswer}
-            detectOrderNum={this.props.detectOrderNum}
+            handleResponse={this.props.handleResponse}
             name={"Got it!"}
           />
           <Button
             submitStatus={this.props.submitStatus}
-            detectOrderNum={this.props.detectOrderNum}
-            handleAnswer={this.props.handleAnswer}
+            handleResponse={this.props.handleResponse}
             name={"More practice!"}
           />
         </div>
