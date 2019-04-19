@@ -139,7 +139,6 @@ class ReviewPage extends React.Component {
             <Prompt
               restartPrompt={this.state.restartPrompt}
               renderMainPage={this.props.renderMainPage}
-              failedState={this.state.failedCards}
             />
           )}
         </section>
