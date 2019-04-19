@@ -17,7 +17,7 @@ class ReviewPage extends React.Component {
   }
 
   accessLocalStorage = () => {
-    console.log(JSON.parse(localStorage.getItem("failedCards")));
+    console.log("failedCards = 1 => :", this.state.failedCards);
     this.setState({
       failedCards: JSON.parse(localStorage.getItem("failedCards"))
     });
@@ -34,20 +34,23 @@ class ReviewPage extends React.Component {
 
   componentDidMount() {
     this.setState({ order: 0 });
-    ///////////////////////////////////////////////////
     if (JSON.parse(localStorage.getItem("failedCards"))) {
+      console.log("failedCards = 2 => :", this.state.failedCards);
       this.accessLocalStorage();
     } else {
       this.fetchData();
     }
   }
 
-  componentDidUpdate(nextState) {
+  componentDidUpdate() {
+    const currentFailedCards = this.state.failedCards.filter(card => {
+      return card.understood === false;
+    });
+    console.log("CF:", currentFailedCards);
+    console.log("failedCards = 3 => :", this.state.failedCards);
+
     if (this.state.failedCards.length) {
-      localStorage.setItem(
-        "failedCards",
-        JSON.stringify(this.state.failedCards)
-      );
+      localStorage.setItem("failedCards", JSON.stringify(currentFailedCards));
     }
   }
 
@@ -57,7 +60,6 @@ class ReviewPage extends React.Component {
 
   renderCard = cardType => {
     const allCards = this.state.totalCards.TopicReact || this.state.failedCards;
-    ///////////////////////////////////////////////////
     if (allCards === undefined) {
       console.log("loading");
     } else {
@@ -83,14 +85,10 @@ class ReviewPage extends React.Component {
   };
 
   handleResponse = type => {
-    console.log("failedCards:", this.state.failedCards);
-    console.log("totalCards:", this.state.totalCards.TopicReact);
     const allCards = this.state.totalCards.TopicReact || this.state.failedCards;
     const currentCardIndex = this.state.order;
     const newOrderNum = currentCardIndex + 1;
-    console.log(newOrderNum);
     if (newOrderNum === 30) {
-      console.log("WAIT!!!");
       this.setState({ restartPrompt: true, order: 0 });
     }
     if (type === "GOT IT") {
