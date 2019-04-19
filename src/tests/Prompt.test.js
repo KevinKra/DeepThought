@@ -1,19 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import CardSlideShow from "../components/CardSlideShow";
+import Prompt from "../components/Prompt";
 
 const defaultState = {};
 
-describe("<CardSlideShow />", () => {
+describe("<Prompt />", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<CardSlideShow />);
+    wrapper = shallow(<Prompt />);
   });
   it("should match the snapshot", () => {
     expect(toJson(wrapper)).toMatchSnapshot();
-  });
-  it("should match default state", () => {
-    expect(wrapper.state()).toEqual(defaultState);
   });
 });
