@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserSection /> should match the snapshot 1`] = `
+<section
+  className="userSection"
+>
+  <h2
+    className="userGreeting"
+  >
+    Welcome, undefined!
+  </h2>
+</section>
+`;

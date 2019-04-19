@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReviewPage /> should match the snapshot 1`] = `
+<main
+  className="window-reviewPage"
+>
+  <NavBar
+    mainLink={true}
+  />
+  <section
+    className="content-section"
+  >
+    <ContentCard
+      handleClick={[Function]}
+      handleResponse={[Function]}
+      renderCard={[Function]}
+      title="Question"
+    />
+    <ContentCard
+      handleResponse={[Function]}
+      renderCard={[Function]}
+      submitStatus={false}
+      title="Answer"
+    />
+  </section>
+</main>
+`;

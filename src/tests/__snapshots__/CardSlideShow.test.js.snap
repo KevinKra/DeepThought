@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardSlideShow /> should match the snapshot 1`] = `
+<section
+  className="card-slide-show"
+>
+  <CardTopic
+    blurb="Styles fundamentals"
+    topic="CSS"
+  />
+  <CardTopic
+    blurb="<p>Learn Tags!</p>"
+    topic="HTML"
+  />
+  <CardTopic
+    blurb="Check out these functions."
+    topic="Functions"
+  />
+  <CardTopic
+    blurb="Object Oriented Guide"
+    topic="OOP"
+  />
+  <CardTopic
+    blurb="React Foundations"
+    topic="React"
+  />
+  <CardTopic
+    blurb="Learn JavaScript!"
+    topic="JavaScript"
+  />
+  <div
+    className="blur-screen"
+  />
+</section>
+`;
