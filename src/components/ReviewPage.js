@@ -17,7 +17,6 @@ class ReviewPage extends React.Component {
   }
 
   accessLocalStorage = () => {
-    console.log("failedCards = 1 => :", this.state.failedCards);
     this.setState({
       failedCards: JSON.parse(localStorage.getItem("failedCards"))
     });
@@ -35,7 +34,6 @@ class ReviewPage extends React.Component {
   componentDidMount() {
     this.setState({ order: 0 });
     if (JSON.parse(localStorage.getItem("failedCards"))) {
-      console.log("failedCards = 2 => :", this.state.failedCards);
       this.accessLocalStorage();
     } else {
       this.fetchData();
@@ -46,9 +44,6 @@ class ReviewPage extends React.Component {
     const currentFailedCards = this.state.failedCards.filter(card => {
       return card.understood === false;
     });
-    console.log("CF:", currentFailedCards);
-    console.log("failedCards = 3 => :", this.state.failedCards);
-
     if (this.state.failedCards.length) {
       localStorage.setItem("failedCards", JSON.stringify(currentFailedCards));
     }
@@ -103,7 +98,6 @@ class ReviewPage extends React.Component {
         hasBeenClicked: false,
         failedCards: newFailedCards
       });
-
       allCards[currentCardIndex].understood = false;
     }
   };
@@ -145,6 +139,7 @@ class ReviewPage extends React.Component {
             <Prompt
               restartPrompt={this.state.restartPrompt}
               renderMainPage={this.props.renderMainPage}
+              failedState={this.state.failedCards}
             />
           )}
         </section>

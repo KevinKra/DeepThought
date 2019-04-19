@@ -6,14 +6,17 @@ class Prompt extends React.Component {
     localStorage.clear();
     this.props.renderMainPage();
   };
+
   render() {
     return (
       <article className="content-card">
         <h1>All cards reviewed!</h1>
         <div className="button-container">
-          <button className="btn-2" onClick={this.props.renderMainPage}>
-            Exit and Save
-          </button>
+          {!localStorage.failedCards.length > 2 ? (
+            <button className="btn-2" onClick={this.props.renderMainPage}>
+              Exit and Save
+            </button>
+          ) : null}
           <button className="btn-2" onClick={this.clearAndMainPage}>
             Exit and Clear
           </button>
