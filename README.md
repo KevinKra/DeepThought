@@ -13,7 +13,7 @@ ThinkDeeper is an application designed around providing users with a platform to
 ## Built with
 
 - React
-- Redux
+- JavaScript
 - Sass
 - Node
 

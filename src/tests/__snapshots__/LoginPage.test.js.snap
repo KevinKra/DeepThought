@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> should render main page if renderMainPage local state is true 1`] = `
+<div>
+  <MainPage
+    renderLoginPage={[Function]}
+  />
+</div>
+`;

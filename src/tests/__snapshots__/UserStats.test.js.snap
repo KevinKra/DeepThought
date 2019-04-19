@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserStats /> should match the snapshot 1`] = `
+<section
+  className="user-stats"
+>
+  <article>
+    Total cards Reviewed:
+  </article>
+  <ReviewButton
+    purpose="Review Cards"
+  />
+  <ReviewButton
+    purpose="Starred Cards"
+  />
+</section>
+`;

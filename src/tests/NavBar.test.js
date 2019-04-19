@@ -1,14 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import CardSlideShow from "../components/CardSlideShow";
+import NavBar from "../components/NavBar";
 
 const defaultState = {};
 
-describe("<CardSlideShow />", () => {
+describe("<NavBar />", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<CardSlideShow />);
+    wrapper = shallow(<NavBar />);
   });
   it("should match the snapshot", () => {
     expect(toJson(wrapper)).toMatchSnapshot();

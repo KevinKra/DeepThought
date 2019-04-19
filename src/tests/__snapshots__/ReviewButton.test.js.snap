@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReviewButton /> should match the snapshot 1`] = `
+<button
+  type="submit"
+/>
+`;
